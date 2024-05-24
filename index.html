@@ -21,7 +21,7 @@
         font-size:20px;
         background:#67b7;
     }
-    .g{  
+    .g{
         display:flex;
         font-size:20px;
         color:#fff;
@@ -38,8 +38,6 @@
             display:none;
             text-align:center;
         }
-
-
 </style>
 <div id="main">
     <p class='g'> J-Get </p>
@@ -51,7 +49,7 @@
             </div>
             <p class='d'>Програмирование </p>
             <p>цена:1000</p>
-            <button id='buy'>Купить</button>
+            <button id="buy">Купить</button>
         </div>
         <div class='db'>
             <div class='d'>
@@ -80,12 +78,16 @@
 </form>
 
 <script>
-    let tg = window.Telegram.WebApp;
-    let buy = document.getElementById("buy");
-    let order = document.getElementById("order");
 
-    buy.addEventListener("click", () => {
-        document.getElementById("main").style.display="none";
-        document.getElementById("form").style.display="block";
+    let buy = document.getElementById("buy");
+    let buy1 = document.getElementById("buy1");
+    let buy2 = document.getElementById("buy2");
+
+    // Добавьте слушатель событий для каждой кнопки
+    [buy, buy1, buy2].forEach((btn) => {
+        btn.addEventListener("click", () => {
+            document.getElementById("main").style.display="none";
+            document.getElementById("form").style.display="block";
+        });
     });
 </script>
