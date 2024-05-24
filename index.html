@@ -77,9 +77,7 @@
     <div id="error"></div>
     <button id="order">Оформить</button>
 </form>
-
 <script>
-
     let buy = document.getElementById("buy");
     let buy1 = document.getElementById("buy1");
     let buy2 = document.getElementById("buy2");
@@ -92,19 +90,27 @@
             document.getElementById("form").style.display="block";
         });
     });
-    let name = document.getElementById("user_name").value;
-    let email = document.getElementById("user_email").value;
-    let phone = document.getElementById("user_phone").value;
 
-    if (name.length < 5) {
-        document.getElementById("error").innerText = 'Ошибка в имени';
-        return;}
-    elif (phone.constructor==String){
-        document.getElementById("error").innerText = 'Ошибка в номере';
-        return;}
-    else {
-        let data = {
-            name: name,
-            email: email,
-            phone: phone}
+    order.addEventListener("click", () => {
+        let name = document.getElementById("user_name").value;
+        let email = document.getElementById("user_email").value;
+        let phone = document.getElementById("user_phone").value;
+
+        if (name.length < 5) {
+            document.getElementById("error").innerText = 'Ошибка в имени';
+            return;
+        }
+        if (!/^\d+$/.test(phone)){
+            document.getElementById("error").innerText = 'Ошибка в номере';
+            return;
+        }
+        else {
+            let data = {
+                name: name,
+                email: email,
+                phone: phone
+            }
+            console.log(data); // здесь вы можете сделать что-то с данными
+        }
+    })
 </script>
